@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.exemple.com/wswithspring/soap"
+            xmlns:tns="http://www.exemple.com/wswithspring/soap"
+            >
+
+    <xsd:element name="GetCompteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="code" type="xsd:long"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element >
+
+    <xsd:element name="GetCompteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="compte" type="tns:compte"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element >
+
+    <xsd:element name="listeCompteRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element >
+
+    <xsd:element name="listeCompteResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="comptes" type="tns:compte" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element >
+
+
+
+    <xsd:complexType name="compte">
+        <xsd:sequence>
+            <xsd:element name="code" type="xsd:long"/>
+            <xsd:element name="solde" type="xsd:double"/>
+            <xsd:element name="dateCreation" type="xsd:dateTime"/>
+            <xsd:element name="status" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
